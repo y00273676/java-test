@@ -19,5 +19,12 @@ public class CovariantArrays {
             // Compiler allows you to add Oranges:
             fruit[0] = new Orange(); // ArrayStoreException
         } catch(Exception e) { System.out.println(e); }
-        }
+	
+	try {
+	    List<? extends Fruit> flist = new ArrayList<Apple>();
+	    flist.add(null);
+	    Fruit f = flist.get(0);
+	    System.out.print("the f is "+ f);
+	} catch(Exception e) { System.out.println(e); }
+    }
 } 
